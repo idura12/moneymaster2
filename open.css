@@ -1,0 +1,160 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9; /* Light background color for better contrast */
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #333; /* Dark color for the heading */
+}
+
+video {
+    width: 80%;
+    max-width: 800px;
+    height: auto;
+    border: 1px solid #ccc;
+    background-color: #000;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add some shadow for depth */
+}
+
+#controls {
+    margin-top: 20px;
+}
+
+button {
+    margin: 10px;
+    padding: 12px 24px;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: #4CAF50; /* Green background for buttons */
+    color: white;
+    border: none;
+    border-radius: 5px; /* Rounded corners for buttons */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth button hover effect */
+}
+
+button:hover {
+    background-color: #45a049; /* Slightly darker green on hover */
+    transform: scale(1.1); /* Slightly increase button size on hover */
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    transform: none; /* Remove hover effect when disabled */
+}
+
+#startButton {
+    background-color: #28a745; /* Custom color for start button */
+}
+
+#stopButton {
+    background-color: #dc3545; /* Custom color for stop button */
+}
+
+#stopButton:disabled {
+    background-color: #ccc;
+}
+
+#startButton:disabled {
+    background-color: #ccc;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    video {
+        width: 100%; /* Full width on small screens */
+        height: auto;
+    }
+
+    h1 {
+        font-size: 2em; /* Smaller font for mobile devices */
+    }
+
+    button {
+        width: 80%; /* Buttons take up more space on small screens */
+    }
+}
+
+add ath 
+/* General styles for the body */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Light grey background */
+}
+
+/* Video element */
+#video {
+    width: 80%;
+    height: auto;
+    margin-top: 20px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Control panel container */
+#controls {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between buttons */
+    align-items: center;
+}
+
+/* Button styles */
+button {
+    background-color: #4CAF50; /* Green background */
+    color: white;
+    border: 2px solid transparent;
+    padding: 12px 25px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+    position: relative;
+}
+
+/* Button hover effect */
+button:hover {
+    background-color: #45a049; /* Darker green when hovered */
+}
+
+/* Home button style */
+#homeButton {
+    background-color: #007BFF; /* Blue background for Home button */
+    padding: 14px 28px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 8px;
+    color: white;
+}
+
+#homeButton:hover {
+    background-color: #0056b3; /* Darker blue when hovered */
+}
+
+/* Disabled buttons */
+button:disabled {
+    background-color: #ddd; /* Gray background for disabled button */
+    cursor: not-allowed;
+}
+
+/* Link styling for Home button */
+a {
+    text-decoration: none; /* Remove underline from link */
+    color: inherit; /* Inherit color from the button */
+}
+
+a:hover {
+    text-decoration: underline; /* Underline when hovered */
+}

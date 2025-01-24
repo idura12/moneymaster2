@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sri Lanka Pigeon Stops</title>
+    <!-- Google Fonts Integration -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+ <!-- Correct link to styles.css -->
+ <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Universal Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: url('Assets/how-to-get-rid-of-pigeons.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #000000; /* Set text color to black */
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        /* Header Section */
+        header {
+            background: rgba(0, 0, 0, 0.6); 
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        header .logo {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #ff7f50;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-left: 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0;
+            text-transform: uppercase;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ff7f50;
+            transform: scale(1.1);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 20px;
+            background: rgba(0, 0, 0, 0.5);
+            margin-top: 80px;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #ff7f50;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            background-color: #ff7f50;
+            color: #fff;
+            padding: 12px 25px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+        }
+
+        /* Product Box */
+        .product-box {
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid #ff7f50;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px auto;
+            max-width: 800px;
+            text-align: center;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+            animation: bounceIn 1s ease-out;
+        }
+
+        .product-box h3 {
+            font-size: 1.8rem;
+            color: #35424a;
+            margin-bottom: 10px;
+        }
+
+        .product-box p {
+            font-size: 1rem;
+            color: #35424a;
+            margin-bottom: 20px;
+        }
+
+        .buy-button {
+            background: #ff7f50;
+            color: white;
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .buy-button:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+        }
+
+        /* Footer Section */
+        footer {
+            background: #35424a;
+            color: white;
+            padding: 30px 0;
+            margin-top: 40px;
+        }
+
+        footer p {
+            font-size: 0.8rem;
+        }
+
+        /* About Section */
+        #about, #panel {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        #about h2, #panel h2 {
+            font-size: 2rem;
+            color: #35424a;
+            margin-bottom: 15px;
+        }
+
+        /* Animations */
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            60% {
+                transform: scale(1.1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <h1> Pigeon Stops</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="panel.html">Panel System</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="hero">
+        <h2>Welcome to  Pigeon Stops</h2>
+        <p>Your trusted partner in pigeon-driven solutions for modern communication.</p>
+        <button class="cta-button">Learn More</button>
+    </div>
+
+    <main>
+        <section class="product-box">
+            <h3>Buy the Best Pigeon-Driven Solutions</h3>
+            <p>Price: Rs. 60000 / $202</p>
+            <button class="buy-button">Buy Now</button>
+        </section>
+
+        <section id="about">
+            <h2>About Our Pigeon System</h2>
+            <p>Our pigeon systems allow you to drive pigeons to different destinations with precision and speed. These pigeons are specially trained for swift delivery of messages and goods, providing a unique communication solution in Sri Lanka. We use a combination of advanced tracking systems and trained pigeon handlers to ensure successful deliveries.</p>
+        </section>
+
+        <section id="panel">
+            <h2>Panel System</h2>
+            <p>Our cutting-edge pigeon panel systems allow you to monitor and manage pigeon navigation with ease, ensuring optimal routes and efficient deliveries. These systems provide real-time data on pigeon flight paths, enabling a seamless tracking experience.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Sri Lanka Pigeon Stops | Money Master Design All Rights Reserved</p>
+    </footer>
+</body>
+</html>
