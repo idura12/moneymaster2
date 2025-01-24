@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pigeon Detection System</title>
+    <link rel="stylesheet" href="open.css" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+      }
+      #video {
+        width: 80%;
+        height: auto;
+        margin-top: 20px;
+      }
+      #controls {
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Pigeon Detection System</h1>
+    <video id="video" autoplay playsinline></video>
+
+    <div id="controls">
+        <button id="startButton">Start Camera</button>
+        <button id="stopButton" disabled>Stop Camera</button>
+        <a href="index.html" id="homeButton">Home</a> <!-- Home link -->
+      </div>
+      
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
+    <script src="script.js"></script>
+
+    <script>
+      // Get the video element and buttons
+      const video = document.getElementById("video");
+      const startButton = document.getElementById("startButton");
+      const stopButton = document.getElementById("stopButton");
+
+      let stream; // Variable to store the camera stream
+      let model; // Variable to store the pre-trained coco-ssd model
+      let audio = new Audio("Assets/Sound To Scare Pigeons _ PIGEON REPELLENT.mp3"); // Correct file path for the sound
+
+      // Function to load the object detection model
+      const loadModel = async () => {
+        try {
+          model = await cocoSsd.load();
+          console.log("Model loaded!");
+        } catch (error) {
+          console.error("Error loading model: ", error);
+          alert("Error loading the model. Please try again.");
+        }
+      };
+
+      // Function to start the camera
+      const startCamera = async () => {
+        try {
+          // Check if the browser supports camera access
+          if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+            alert("Camera not supported on your browser.");
+            return;
+          }
+
+          // Request camera access
+          stream = await navigator.mediaDevices.getUserMedia({ video: true });
+          video.srcObject = stream;
+          startButton.disabled = true; // Disable the start button once the camera is active
+          stopButton.disabled = false; // Enable the stop button
+          console.log("Camera started successfully");
+
+          // Start object detection (ensure the model is loaded)
+          if (model) {
+            detectObjects();
+          } else {
+            console.log("Model not loaded yet.");
+          }
+        } catch (err) {
+          console.error("Error accessing the camera: ", err);
+          alert("Could not access the camera. Please ensure permissions are granted.");
+        }
+      };
+
+      // Function to stop the camera
+      const stopCamera = () => {
+        // Stop all tracks of the stream (turn off the camera)
+        if (stream) {
+          const tracks = stream.getTracks();
+          tracks.forEach((track) => track.stop());
+          video.srcObject = null;
+        }
+        startButton.disabled = false; // Enable the start button again
+        stopButton.disabled = true; // Disable the stop button
+        console.log("Camera stopped");
+      };
+
+      // Function to detect objects in the camera feed
+      const detectObjects = async () => {
+        try {
+          const predictions = await model.detect(video); // Get predictions from the model
+          console.log("Predictions: ", predictions); // Log predictions to see what's detected
+
+          // Check if any object is detected as bird
+          const birdDetected = predictions.some(
+            (prediction) => prediction.class === "bird"
+          );
+
+          if (birdDetected) {
+            console.log("Bird detected!");
+            playSound(); // Trigger sound when a bird is detected
+          } else {
+            console.log("No bird detected.");
+          }
+        } catch (error) {
+          console.error("Error detecting objects: ", error);
+        }
+
+        // Continuously call detectObjects every 500ms
+        requestAnimationFrame(detectObjects);
+      };
+
+      // Function to play the sound for 2 minutes
+      const playSound = () => {
+        // Check if audio is paused
+        if (audio.paused) {
+          console.log("Playing sound...");
+          audio.play().catch(error => {
+            console.error("Error playing audio: ", error);
+            alert("Audio playback failed. Please check your browser settings.");
+          });
+
+          setTimeout(() => {
+            console.log("Stopping sound...");
+            audio.pause(); // Stop playing the sound after 2 minutes
+            audio.currentTime = 0; // Reset audio playback
+          }, 120000); // 120000 milliseconds = 2 minutes
+        } else {
+          console.log("Audio is already playing.");
+        }
+      };
+
+      // Event listeners for buttons
+      startButton.addEventListener("click", startCamera);
+      stopButton.addEventListener("click", stopCamera);
+
+      // Initially disable the stop button
+      stopButton.disabled = true;
+
+      // Load the model when the page is loaded
+      window.onload = loadModel;
+    </script>
+  </body>
+</html>
